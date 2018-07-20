@@ -27,8 +27,8 @@ if (isset($_GET['flag'])) {
                 if (!$search) { // DB connection error
                     echo "{\"status\": 1, 2}";
                 }
-                elseif ($result->num_rows) {  // user already exists
-                    $row = $result->fetch_array(MYSQLI_NUM);
+                elseif ($search->num_rows) {  // user already exists
+                    $row = $search->fetch_array(MYSQLI_NUM);
                     echo "{\"status\": 3, \"registerdate\": \"" . $row[0] . "\"}";
                 }
                 else {

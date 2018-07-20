@@ -1,0 +1,30 @@
+version: '3'
+
+services:
+    mariadb:
+        image: mariadb
+        restart: always
+        environment:
+            - MYSQL_ROOT_PASSWORD=SJSU_TEAM_COMMA
+            - MYSQL_DATABASE=SJSU_TEAM_COMMA_2018
+        volumes:
+            - ./data:/var/lib/mysql
+            - ./db.sql:/docker-entrypoint-initdb.d/init.sql
+        healthcheck:
+            test: "/usr/bin/mysql --user=root --password=SJSU_TEAM_COMMA --execute \"show databases;\" | grep SJSU_TEAM_COMMA_2018"
+            interval: 3s
+            timeout: 1s
+            retries: 5
+
+    php_server:
+        image: php:7.0-apache
+        command: docker-php-ext-install mysqli
+        restart: always
+        volumes:
+            - ./handler/php/:/var/www/html/
+        ports:
+            - "7777:80"
+        links:
+            - mariadb
+        depends_on:
+            - mariadb

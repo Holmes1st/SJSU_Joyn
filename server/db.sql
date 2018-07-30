@@ -9,7 +9,7 @@ CREATE TABLE IF NOT EXISTS user (
     email   VARCHAR(50) NOT NULL,
     pw      VARCHAR(50) NOT NULL,
     birth   DATE,
-    imgUrl  VARCHAR(50),
+    imgUrl  VARCHAR(150),
     registerdate    DATE
 );
 

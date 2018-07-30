@@ -11,7 +11,7 @@ if ($conn === 1) {   // DB connection error
 }
 else {
     $user=$_GET['user'];
-    $select_sql = "select user.fname, user.lname, user.imgUrl from friends inner join user on friends.user2=user.idx where friends.user1=$user";
+    $select_sql = "select friends.user2, user.fname, user.lname, user.imgUrl from friends inner join user on friends.user2=user.idx where friends.user1=$user";
     $search = $conn->query($select_sql);
 
     if (!$search) { // DB connection error
@@ -23,6 +23,7 @@ else {
         {
             $temp = array();
             $temp['status'] = 0;
+            $temp['fidx'] = $row['user2'];
             $temp['fname'] = $row['fname'];
             $temp['lname'] = $row['lname'];
             $temp['imgUrl'] = $row['imgUrl'];

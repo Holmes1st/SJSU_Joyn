@@ -48,7 +48,15 @@ CREATE TABLE IF NOT EXISTS friends (
 --
 -- );x
 
-INSERT INTO sport (name) VALUES('Soccer');
-INSERT INTO sport (name) VALUES('Basketball');
-INSERT INTO sport (name) VALUES('Baseball');
 INSERT INTO sport (name) VALUES('Tennis');
+INSERT INTO sport (name) VALUES('Basketball');
+INSERT INTO sport (name) VALUES('Soccer');
+INSERT INTO sport (name) VALUES('Workout');
+INSERT INTO sport (name) VALUES('Badminton');
+INSERT INTO sport (name) VALUES('Jogging');
+INSERT INTO sport (name) VALUES('Yoga');
+INSERT INTO sport (name) VALUES('Cycling');
+INSERT INTO sport (name) VALUES('Baseball');
+INSERT INTO sport (name) VALUES('Bowling');
+INSERT INTO sport (name) VALUES('Billiard');
+INSERT INTO sport (name) VALUES('Surfing');
